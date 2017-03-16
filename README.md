@@ -50,10 +50,12 @@ directory:
 cmake_minimum_required(VERSION 2.8)
 project(YourProjectName)
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  add_subdirectory(Builds/MacOSX)
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    add_subdirectory(Builds/VisualStudio2015)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    add_subdirectory(Builds/MacOSX)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  add_subdirectory(Builds/Linux)
+    add_subdirectory(Builds/Linux)
 endif()
 ```
 

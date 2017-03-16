@@ -5,8 +5,12 @@ cmake_minimum_required(VERSION 2.8)
 # Set the output destination
 set(plugin_BUILDS_DIR ${PROJECT_SOURCE_DIR}/Builds)
 
-# TODO: Add support for Windows
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+# Configure Build System
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  set(plugin_BUILD_DIR ${plugin_BUILDS_DIR}/VisualStudio2015)
+  set(plugin_OUTPUT ${plugin_BUILDS_DIR}/build/${CMAKE_PROJECT_NAME}.vst)
+  set(plugin_BUILDER msbuild)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   set(plugin_BUILD_DIR ${plugin_BUILDS_DIR}/MacOSX)
   set(plugin_OUTPUT ${plugin_BUILDS_DIR}/build/${CMAKE_PROJECT_NAME}.vst)
   set(plugin_BUILDER xcodebuild)
