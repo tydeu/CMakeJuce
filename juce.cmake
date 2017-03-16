@@ -63,31 +63,31 @@ include_directories(${juce_SOURCE_DIR})
 
 # Create a fake shared library so that the IDE project will associate the
 # project sources with a target. This target will usually not compile since
-# Introducer is doing some special things in the generated project, like
+# Introjucer is doing some special things in the generated project, like
 # setting compiler flags or not building certain files on a given platform.
 #
 # Rather than attempt to copy all of those things to these target, you should
 # just use the build_PROJECT target in your IDE instead of virtual_TARGET.
 set(virtual_TARGET virtual_${CMAKE_PROJECT_NAME})
 
-add_library(virtual_TARGET SHARED
+add_library(${virtual_TARGET} SHARED
             ${plugin_SOURCES}
             ${plugin_HEADERS}
             ${juce_SOURCES}
 )
 
-set_target_properties(virtual_TARGET PROPERTIES PREFIX "")
+set_target_properties(${virtual_TARGET} PROPERTIES PREFIX "")
 
-set_property(TARGET virtual_TARGET
+set_property(TARGET ${virtual_TARGET}
              APPEND
              PROPERTY
              IMPORTED_CONFIGURATIONS
              NOCONFIG)
 
-set_target_properties(virtual_TARGET
+set_target_properties(${virtual_TARGET}
                       PROPERTIES
                       IMPORTED_LOCATION_NOCONFIG
                       "${plugin_OUTPUT}")
 
 # Allow the main target to build with the external build target
-add_dependencies(virtual_TARGET ${main_TARGET})
+add_dependencies(${virtual_TARGET} ${main_TARGET})

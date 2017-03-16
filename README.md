@@ -81,9 +81,9 @@ Usage
 Once you have the initial project set up, point your CMake-supported IDE to
 the top-level `CMakeLists.txt` file and everything should work out! This
 project will generate for you two targets, `YourProjectName` and
-`virtual_TARGET`. Set `YourProjectName` as the compiler target as the
-`virtual_TARGET` is only used to give a target to the IDE for correct indexing
-of the project's source code.
+`virtual_YourProjectName`. Set `YourProjectName` as the compiler target as the
+`virtual_YourProjectName` is only used to give a target to the IDE for correct 
+indexing of the project's source code.
 
 
 [juce]: http://www.juce.com
