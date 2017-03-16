@@ -60,6 +60,7 @@ file(GLOB_RECURSE juce_SOURCES
 
 # Help some IDEs with #include completion
 include_directories(${juce_SOURCE_DIR})
+include_directories(${juce_SOURCE_DIR}/modules)
 
 # Create a fake shared library so that the IDE project will associate the
 # project sources with a target. This target will usually not compile since
